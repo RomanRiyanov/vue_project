@@ -6,19 +6,19 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        testData: ''
-      }
+export default {
+  data() {
+    return {
+      testData: '',
     }
-  }
+  },
+}
 </script>
 
 <style scoped>
 .main {
   padding: 50px 90px;
-  background: rgba(255,255,255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 4px;
   text-align: left;
 }

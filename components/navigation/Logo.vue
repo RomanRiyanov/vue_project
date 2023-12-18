@@ -5,16 +5,14 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      title: {
-        type: String,
-        default: "Default title"
-      }
-    }
-  }
+export default {
+  props: {
+    title: {
+      type: String,
+      default: 'Default title',
+    },
+  },
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

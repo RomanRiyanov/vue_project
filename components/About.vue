@@ -1,4 +1,3 @@
-
 <template>
   <div class="main">
     <h1>Nuxt JS</h1>
@@ -7,13 +6,13 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        testData: ''
-      }
+export default {
+  data() {
+    return {
+      testData: '',
     }
-  }
+  },
+}
 </script>
 
 <style scoped>

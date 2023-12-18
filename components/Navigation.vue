@@ -1,11 +1,21 @@
 <template>
   <nav class="navigation">
-    <Logo :title="text"/>
+    <Logo :title="text" />
     <!-- <Logo /> -->
-    <nuxt-link v-for="elem of linksArray" class="link" :to="elem.to" :key="elem.title">
+    <nuxt-link
+      v-for="elem of linksArray"
+      class="link"
+      :to="elem.to"
+      :key="elem.title"
+    >
       {{ elem.title }}
     </nuxt-link>
-    <button class="button" @click="toggleModal('переданные в обработчик данные', $event)">{{ text }}</button>
+    <button
+      class="button"
+      @click="toggleModal('переданные в обработчик данные', $event)"
+    >
+      {{ text }}
+    </button>
 
     <button v-if="showBtn1" class="button">Первая кнопка</button>
     <button v-else-if="showBtn2" class="button">Вторая кнопка</button>
@@ -15,25 +25,25 @@
     <p>{{ counter }}</p>
 
     <!-- <Modal v-show="showModal" :onToggle="toggleModal"/> -->
-    <Modal v-show="showModal" @modalClose="toggleModal"/>
+    <Modal v-show="showModal" @modalClose="toggleModal" />
   </nav>
 </template>
 
 <script>
-  import Logo from './navigation/logo';
-  export default {
-    components: {
-      Logo
-    },
+import Logo from './navigation/logo'
+export default {
+  components: {
+    Logo,
+  },
   data() {
     return {
-      text: "Roma experiment",
-      logoText: "Logo Roma title",
+      text: 'Roma experiment',
+      logoText: 'Logo Roma title',
       showBtn1: false,
       showBtn2: false,
       linksArray: [
-        {to: '/', title: "Main"},
-        {to: '/about', title: "About page"},
+        { to: '/', title: 'Main' },
+        { to: '/about', title: 'About page' },
       ],
       showModal: false,
       counter: 0,
@@ -41,20 +51,20 @@
   },
   methods: {
     handleClick() {
-      console.log("Clicked!");
+      console.log('Clicked!')
       // console.log(this.showModal)
       // console.log(this.linksArray)
     },
     toggleModal(data, event) {
       console.log('data from Modal', data)
       console.log('событие', event)
-      this.showModal = !this.showModal;
+      this.showModal = !this.showModal
     },
     handleModalClose() {
       console.log('Сработало')
-    }
-  }
-  }
+    },
+  },
+}
 </script>
 
 <style scoped>
@@ -68,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .button {
@@ -79,12 +89,12 @@
   border: 1px solid black;
   border-radius: 30px;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 .button:hover {
   background: black;
   color: white;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .link {
