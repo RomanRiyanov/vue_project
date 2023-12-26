@@ -3,18 +3,28 @@
     <div class="container">
       <form>
         <!-- <span class="icon-close" @click="onToggle"/> -->
-        <span class="icon-close" @click="$emit('modalClose', { hello: email })" />
+        <span
+          class="icon-close"
+          @click="$emit('modalClose', { hello: email })"
+        />
         <h1>Вход</h1>
         <label class="label">
           Email
-          <input class="input" type="email" v-model="email" @keydown.enter="handleKeyDown"/>
+          <input
+            class="input"
+            type="email"
+            v-model="email"
+            @keydown.enter="handleKeyDown"
+          />
         </label>
         <p>{{ reverse }}</p>
         <label class="label">
           Пароль
           <input class="input" type="password" />
         </label>
-        <button type="submit" class="button" @click.prevent="handleButtonClick">Войти</button>
+        <button type="submit" class="button" @click.prevent="handleButtonClick">
+          Войти
+        </button>
       </form>
     </div>
   </article>
@@ -40,13 +50,13 @@ export default {
     handleKeyDown(event) {
       console.log(event)
       console.log('key pressed')
-    }
+    },
   },
   computed: {
     reverse() {
       return this.email.split('').reverse().join('')
-    }
-  }
+    },
+  },
 }
 </script>
 

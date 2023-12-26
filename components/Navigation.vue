@@ -19,13 +19,18 @@
 
     <button v-if="showBtn1" class="button">Первая кнопка</button>
     <button v-else-if="showBtn2" class="button">Вторая кнопка</button>
-    <button v-else="showBtn2" class="button" @click="$router.push('/about')">Запасная кнопка</button>
+    <button v-else="showBtn2" class="button" @click="$router.push('/about')">
+      Запасная кнопка
+    </button>
 
     <!-- <input type="checkbox" v-model="showModal"/> -->
     <p>{{ counter }}</p>
 
     <!-- <Modal v-show="showModal" :onToggle="toggleModal"/> -->
-    <Modal v-show="showModal" @modalClose="toggleModal('передал данные в обработчик')" />
+    <Modal
+      v-show="showModal"
+      @modalClose="toggleModal('передал данные в обработчик')"
+    />
   </nav>
 </template>
 
@@ -52,8 +57,8 @@ export default {
     }
   },
   beforeCreate() {
-    console.log('Here is router', this.$router);
-    console.log('Route', this.$route);
+    console.log('Here is router', this.$router)
+    console.log('Route', this.$route)
   },
   created() {
     if (this.$route.query.showModal) {
@@ -77,9 +82,11 @@ export default {
   },
   computed: {
     routes() {
-      return this.$router.options.routes.filter((elem) => !elem.path.includes(DYNAMIC_ROUTE_MARKER))
-    }
-  }
+      return this.$router.options.routes.filter(
+        (elem) => !elem.path.includes(DYNAMIC_ROUTE_MARKER)
+      )
+    },
+  },
 }
 </script>
 
