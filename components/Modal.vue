@@ -1,18 +1,21 @@
 <template>
   <article class="modal-wrap">
     <div class="container">
-      <!-- <span class="icon-close" @click="onToggle"/> -->
-      <span class="icon-close" @click="$emit('modalClose', { hello: email })" />
-      <h1>Вход</h1>
-      <label class="label">
-        Email
-        <input class="input" type="email" v-model="email" />
-      </label>
-      <label class="label">
-        Пароль
-        <input class="input" type="password" />
-      </label>
-      <button class="button">Войти</button>
+      <form>
+        <!-- <span class="icon-close" @click="onToggle"/> -->
+        <span class="icon-close" @click="$emit('modalClose', { hello: email })" />
+        <h1>Вход</h1>
+        <label class="label">
+          Email
+          <input class="input" type="email" v-model="email" @keydown.enter="handleKeyDown"/>
+        </label>
+        <p>{{ reverse }}</p>
+        <label class="label">
+          Пароль
+          <input class="input" type="password" />
+        </label>
+        <button type="submit" class="button" @click.prevent="handleButtonClick">Войти</button>
+      </form>
     </div>
   </article>
 </template>
@@ -30,6 +33,20 @@ export default {
       default: () => {},
     },
   },
+  methods: {
+    handleButtonClick(event) {
+      console.log('clicked')
+    },
+    handleKeyDown(event) {
+      console.log(event)
+      console.log('key pressed')
+    }
+  },
+  computed: {
+    reverse() {
+      return this.email.split('').reverse().join('')
+    }
+  }
 }
 </script>
 

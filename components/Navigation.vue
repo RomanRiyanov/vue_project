@@ -3,12 +3,12 @@
     <Logo :title="text" />
     <!-- <Logo /> -->
     <nuxt-link
-      v-for="elem of linksArray"
+      v-for="elem of routes"
       class="link"
-      :to="elem.to"
-      :key="elem.title"
+      :to="elem.path"
+      :key="elem.name"
     >
-      {{ elem.title }}
+      {{ elem.name }}
     </nuxt-link>
     <button
       class="button"
@@ -19,18 +19,20 @@
 
     <button v-if="showBtn1" class="button">Первая кнопка</button>
     <button v-else-if="showBtn2" class="button">Вторая кнопка</button>
-    <button v-else="showBtn2" class="button">Запасная кнопка</button>
+    <button v-else="showBtn2" class="button" @click="$router.push('/about')">Запасная кнопка</button>
 
     <!-- <input type="checkbox" v-model="showModal"/> -->
     <p>{{ counter }}</p>
 
     <!-- <Modal v-show="showModal" :onToggle="toggleModal"/> -->
-    <Modal v-show="showModal" @modalClose="toggleModal" />
+    <Modal v-show="showModal" @modalClose="toggleModal('передал данные в обработчик')" />
   </nav>
 </template>
 
 <script>
 import Logo from './navigation/logo'
+const DYNAMIC_ROUTE_MARKER = ':'
+
 export default {
   components: {
     Logo,
@@ -49,6 +51,15 @@ export default {
       counter: 0,
     }
   },
+  beforeCreate() {
+    console.log('Here is router', this.$router);
+    console.log('Route', this.$route);
+  },
+  created() {
+    if (this.$route.query.showModal) {
+      this.showModal = true
+    }
+  },
   methods: {
     handleClick() {
       console.log('Clicked!')
@@ -64,6 +75,11 @@ export default {
       console.log('Сработало')
     },
   },
+  computed: {
+    routes() {
+      return this.$router.options.routes.filter((elem) => !elem.path.includes(DYNAMIC_ROUTE_MARKER))
+    }
+  }
 }
 </script>
 
