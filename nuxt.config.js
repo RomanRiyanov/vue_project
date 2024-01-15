@@ -42,11 +42,9 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   env: {
-    baseUrl: process.env.BASE_URL || 'https://jsonplaceholder.typicode.com'
+    baseUrl: process.env.BASE_URL || 'https://jsonplaceholder.typicode.com',
   },
-  plugins: [
-    '@/plugins/vue-notification'
-  ],
+  plugins: ['@/plugins/vue-notification'],
   router: {
     middleware: ['redirect'],
   },
@@ -67,7 +65,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-   build: {
-    transpile: [({ isLegacy }) => isLegacy && 'axios']
+  build: {
+    transpile: [({ isLegacy }) => isLegacy && 'axios'],
   },
 }

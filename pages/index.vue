@@ -3,13 +3,17 @@
     {{ $store.state.test }}
     <Test />
     <div class="grid">
-      <UserCard v-for="guest in $store.state.guests" :guest="guest" :key="guest.id" />
+      <UserCard
+        v-for="guest in $store.state.guests"
+        :guest="guest"
+        :key="guest.id"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import axios from '@/plugins/axios';
+import axios from '@/plugins/axios'
 
 const mixins = {
   created() {
@@ -17,9 +21,9 @@ const mixins = {
   },
   data() {
     return {
-      mix: 'Hello mixin!'
+      mix: 'Hello mixin!',
     }
-  }
+  },
 }
 
 export default {
@@ -37,16 +41,13 @@ export default {
     //   return { guests };
     // })
   },
-  created() {
-
-  },
+  created() {},
   mounted() {
     // axios.get('/posts').then(res => {
     //   const guests = res.data.splice(1,10);
     //   this.$store.dispatch('getGuests', 'GET GUESTS dispatch')
     //   this.$store.commit('SET_GUESTS', guests)
     // })
-
     // this.$store.dispatch('getGuests')
   },
   methods: {
@@ -54,12 +55,11 @@ export default {
       console.log('test')
     },
   },
-  mixins: [mixins]
+  mixins: [mixins],
 }
 </script>
 
 <style scoped>
-
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

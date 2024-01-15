@@ -2,8 +2,8 @@
   <div>
     <Navigation />
     <Nuxt />
-    <notifications classes="notifications-wrap" group="foo"/>
-    <notifications classes="notifications-wrap-red" group="bar"/>
+    <notifications classes="notifications-wrap" group="foo" />
+    <notifications classes="notifications-wrap-red" group="bar" />
   </div>
 </template>
 
@@ -26,7 +26,8 @@ html {
   margin: 0;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: black;
   text-decoration: none;
 }
@@ -80,7 +81,7 @@ a, a:visited {
   border-radius: 4px;
   position: absolute;
   bottom: 0;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .notifications-wrap-red {
@@ -91,6 +92,6 @@ a, a:visited {
   border-radius: 4px;
   position: absolute;
   bottom: 0;
-  transition: .3s;
+  transition: 0.3s;
 }
 </style>

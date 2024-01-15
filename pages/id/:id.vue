@@ -11,12 +11,12 @@
 <script>
 export default {
   computed: {
-    guest () {
-      const { id } = this.$route.params;
-      if (id) return this.$store.getters.getCurrentPost(id);
+    guest() {
+      const { id } = this.$route.params
+      if (id) return this.$store.getters.getCurrentPost(id)
       // else $this.router.push('/');
-      else redirect('/');
-    }
+      else redirect('/')
+    },
   },
   mounted() {
     // console.log(this.$route, 'here is route')

@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import { mixin as clickaway } from 'vue-clickaway';
+import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  mixins: [ clickaway ],
+  mixins: [clickaway],
   data() {
     return {
       email: '',
@@ -52,8 +52,8 @@ export default {
       this.$notify({
         group: 'foo',
         title: `Email is : ${this.email}`,
-        text: 'Hello Roman! This is a strange library!'
-      });
+        text: 'Hello Roman! This is a strange library!',
+      })
     },
     handleKeyDown(event) {
       console.log(event)
@@ -61,7 +61,7 @@ export default {
     },
     handleClickAway() {
       this.$emit('modalClose', this.email)
-    }
+    },
   },
   computed: {
     reverse() {
