@@ -2,6 +2,8 @@
   <div>
     <Navigation />
     <Nuxt />
+    <notifications classes="notifications-wrap" group="foo"/>
+    <notifications classes="notifications-wrap-red" group="bar"/>
   </div>
 </template>
 
@@ -22,6 +24,11 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+a, a:visited {
+  color: black;
+  text-decoration: none;
 }
 
 .button--green {
@@ -51,5 +58,39 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.container {
+  background: url('~static/images/bgd.jpeg') center no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.notifications-wrap {
+  padding: 15px;
+  margin: 15px;
+  background: #228c22;
+  color: white;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  transition: .3s;
+}
+
+.notifications-wrap-red {
+  padding: 15px;
+  margin: 15px;
+  background: red;
+  color: white;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  transition: .3s;
 }
 </style>

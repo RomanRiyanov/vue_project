@@ -1,6 +1,6 @@
 <template>
   <article class="modal-wrap">
-    <div class="container">
+    <div class="container-modal" v-on-clickaway="handleClickAway">
       <form>
         <!-- <span class="icon-close" @click="onToggle"/> -->
         <span
@@ -31,7 +31,10 @@
 </template>
 
 <script>
+import { mixin as clickaway } from 'vue-clickaway';
+
 export default {
+  mixins: [ clickaway ],
   data() {
     return {
       email: '',
@@ -46,11 +49,19 @@ export default {
   methods: {
     handleButtonClick(event) {
       console.log('clicked')
+      this.$notify({
+        group: 'foo',
+        title: `Email is : ${this.email}`,
+        text: 'Hello Roman! This is a strange library!'
+      });
     },
     handleKeyDown(event) {
       console.log(event)
       console.log('key pressed')
     },
+    handleClickAway() {
+      this.$emit('modalClose', this.email)
+    }
   },
   computed: {
     reverse() {
@@ -70,7 +81,7 @@ export default {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.container {
+.container-modal {
   width: 400px;
   padding: 30px;
   margin: 0 auto;

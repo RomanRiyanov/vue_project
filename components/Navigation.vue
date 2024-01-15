@@ -1,6 +1,8 @@
 <template>
   <nav class="navigation">
-    <Logo :title="text" />
+    <nuxt-link to="/">
+      <Logo :title="text" />
+    </nuxt-link>
     <!-- <Logo /> -->
     <nuxt-link
       v-for="elem of routes"
@@ -28,7 +30,7 @@
 
     <!-- <Modal v-show="showModal" :onToggle="toggleModal"/> -->
     <Modal
-      v-show="showModal"
+      v-if="showModal"
       @modalClose="toggleModal('передал данные в обработчик')"
     />
   </nav>
@@ -57,8 +59,8 @@ export default {
     }
   },
   beforeCreate() {
-    console.log('Here is router', this.$router)
-    console.log('Route', this.$route)
+    // console.log('Here is router', this.$router)
+    // console.log('Route', this.$route)
   },
   created() {
     if (this.$route.query.showModal) {

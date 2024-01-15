@@ -41,7 +41,15 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://jsonplaceholder.typicode.com'
+  },
+  plugins: [
+    '@/plugins/vue-notification'
+  ],
+  router: {
+    middleware: ['redirect'],
+  },
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -59,5 +67,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+   build: {
+    transpile: [({ isLegacy }) => isLegacy && 'axios']
+  },
 }
