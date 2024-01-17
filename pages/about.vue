@@ -5,7 +5,20 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'About',
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Страница о странице",
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>

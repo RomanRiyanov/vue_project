@@ -27,6 +27,11 @@ const mixins = {
 }
 
 export default {
+  head() {
+    return {
+      title: 'Главная'
+    }
+  },
   data() {
     return {
       guests: [],
