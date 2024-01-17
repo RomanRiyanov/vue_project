@@ -29,7 +29,7 @@ const mixins = {
 export default {
   head() {
     return {
-      title: 'Главная'
+      title: 'Главная',
     }
   },
   data() {

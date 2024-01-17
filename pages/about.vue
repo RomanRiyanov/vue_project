@@ -11,13 +11,13 @@ export default {
       title: 'About',
       meta: [
         {
-          hid: "description",
-          name: "description",
-          content: "Страница о странице",
-        }
-      ]
+          hid: 'description',
+          name: 'description',
+          content: 'Страница о странице',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
